@@ -1,9 +1,14 @@
-package entities;
+package modal.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
+import java.util.Objects;
 
-public class Exit {
+public class Exit implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
+	
 	// Atributos 
 	public Integer id;
 	public String posto;
@@ -11,7 +16,7 @@ public class Exit {
 	public Date date;
 	
 	public Exit() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public Exit(Integer id, String posto, String filia, Date date) {
@@ -24,10 +29,6 @@ public class Exit {
 	// Getters e Setters 
 	public Integer getId() {
 		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getPosto() {
@@ -52,6 +53,28 @@ public class Exit {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Exit other = (Exit) obj;
+		return Objects.equals(id, other.id);
+	}
+
+	@Override
+	public String toString() {
+		return "Saída [id=" + id + ", posto=" + posto + ", filia=" + filia + ", date=" + date + "]";
 	}
 	
 	

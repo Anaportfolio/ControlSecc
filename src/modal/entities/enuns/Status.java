@@ -1,4 +1,4 @@
-package entities.enuns;
+package modal.entities.enuns;
 
 public enum Status {
 	MANUTENÇÃO,
